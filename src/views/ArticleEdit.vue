@@ -142,6 +142,10 @@ export default {
       this.$store.dispatch(ARTICLE_EDIT_REMOVE_TAG, tag);
     },
     addTag(tag) {
+      if (this.article.tagList.includes(tag)) {
+        this.tagInput = null;
+        return;
+      }
       this.$store.dispatch(ARTICLE_EDIT_ADD_TAG, tag);
       this.tagInput = null;
     }
